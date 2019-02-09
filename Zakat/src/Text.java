@@ -1,4 +1,4 @@
-import java.awt.Font;
+import java.awt.*;
 import java.awt.TextField;
 
 public class Text extends TextField {
