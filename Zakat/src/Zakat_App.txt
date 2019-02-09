@@ -1,0 +1,1391 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+public class AgricFrame extends JFrame {
+	
+	public AgricFrame() {
+		super("Agricultural Products");
+		this.setSize(1000,700);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		
+		Container c = this.getContentPane();
+		
+		JPanel pano = new JPanel();
+		c.add(pano);
+		
+		Font f = new Font("Arial",Font.BOLD	, 20);
+		
+		
+		JLabel lab = new JLabel();
+		ImageIcon i = new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/agric.jpg");
+		Image im = i.getImage();
+		Image imm = im.getScaledInstance(1000, 700, java.awt.Image.SCALE_SMOOTH);
+		ImageIcon ico = new ImageIcon(imm);
+		lab.setIcon(ico);
+		lab.setBounds(0, 0, 1200, 700);
+		
+		Text calc = new Text();
+		calc.setBounds(400, 70, 250, 30);
+		calc.setFont(f);
+		pano.add(calc);
+		
+		JLabel enter = new JLabel("Input :");
+		enter.setFont(f);
+		enter.setBounds(250, 70, 100, 30);
+		enter.setForeground(Color.WHITE);
+		pano.add(enter);
+		
+		JLabel en = new JLabel(" Kg");
+		en.setFont(f);
+		en.setBounds(670, 70, 100, 30);
+		en.setForeground(Color.WHITE);
+		pano.add(en);
+		
+		Text result = new Text();
+		result.setText("0 kg");
+		result.setEditable(false);
+		result.setBounds(400, 250, 250, 30);
+		result.setFont(f);
+		pano .add(result);
+		
+		
+		JLabel res = new JLabel("Result :");
+		res.setFont(f);
+		res.setBounds(250, 250, 100, 30);
+		res.setForeground(Color.WHITE);
+		pano.add(res);
+		
+		
+		b1.setBounds(300, 500, 170, 40);
+		b1.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/back.png"));
+		b1.setBackground(Color.DARK_GRAY);
+		b1.setFont(f);
+		b1.setForeground(Color.WHITE);
+		b1.setFocusPainted(false);
+		pano.add(b1);
+		
+		JButton b2 = new JButton("Calculate");
+		b2.setBounds(530, 500, 170, 40);
+		b2.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/calculator.png"));
+		b2.setBackground(Color.DARK_GRAY);
+		b2.setFont(f);
+		b2.setForeground(Color.WHITE);
+		b1.setFocusPainted(false);
+		pano.add(b2);
+		
+		JRadioButton r1 = new JRadioButton("Natural Irrigation");
+		JRadioButton r2 = new JRadioButton("Artificial Irrigation");
+		r1.setBounds(280, 150, 200, 30);
+		r2.setBounds(500, 150, 250, 30);
+		r1.setFont(f);
+		r2.setFont(f);
+		r1.setBackground(Color.BLACK);
+		r2.setBackground(Color.BLACK);
+		r1.setForeground(Color.WHITE);
+		r2.setForeground(Color.WHITE);
+		
+		ButtonGroup grp = new ButtonGroup();
+		grp.add(r1);
+		grp.add(r2);
+		pano.add(r1);
+		pano.add(r2);
+		
+		b2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if(r1.isSelected()) {
+					result.setText(result.calc_agrs(calc.getInt())+" Kg");
+				}
+				if(r2.isSelected()) {
+					result.setText(""+result.calc_agrA(calc.getInt())+" Kg");
+				}
+				
+				
+			}
+		});
+		
+		
+		pano.add(lab);
+		pano.setLayout(null);
+		c.validate();
+		pano.validate();
+		this.setVisible(true);
+		
+	}
+	JButton b1 = new JButton("Back");
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+public class CashFrame extends JFrame {
+	
+	public CashFrame() {
+		super("Cash");
+		this.setSize(1000,700);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		
+		Container c = this.getContentPane();
+		
+		JPanel pano = new JPanel();
+		c.add(pano);
+		
+		Font f = new Font("Arial",Font.BOLD	, 20);
+		
+		
+		JLabel lab = new JLabel();
+		ImageIcon i = new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/cash.jpg");
+		Image im = i.getImage();
+		Image imm = im.getScaledInstance(1000, 700, java.awt.Image.SCALE_SMOOTH);
+		ImageIcon ico = new ImageIcon(imm);
+		lab.setIcon(ico);
+		lab.setBounds(0, 0, 1200, 700);
+		
+		Text calc = new Text();
+		calc.setBounds(400, 70, 250, 30);
+		calc.setFont(f);
+		pano.add(calc);
+		
+		JLabel enter = new JLabel("Input :");
+		enter.setFont(f);
+		enter.setBounds(250, 70, 100, 30);
+		enter.setForeground(Color.WHITE);
+		pano.add(enter);
+		
+		JLabel en = new JLabel(" DA");
+		en.setFont(f);
+		en.setBounds(670, 70, 100, 30);
+		en.setForeground(Color.WHITE);
+		pano.add(en);
+		
+		Text result = new Text();
+		result.setText("0 DA");
+		result.setEditable(false);
+		result.setBounds(400, 250, 250, 30);
+		result.setFont(f);
+		pano .add(result);
+		
+		
+		JLabel res = new JLabel("Result :");
+		res.setFont(f);
+		res.setBounds(250, 250, 100, 30);
+		res.setForeground(Color.WHITE);
+		pano.add(res);
+		
+		
+		b1.setBounds(300, 500, 170, 40);
+		b1.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/back.png"));
+		b1.setBackground(Color.DARK_GRAY);
+		b1.setFont(f);
+		b1.setForeground(Color.WHITE);
+		b1.setFocusPainted(false);
+		b1.setOpaque(false);
+		pano.add(b1);
+		
+		JButton b2 = new JButton("Calculate");
+		b2.setBounds(530, 500, 170, 40);
+		b2.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/calculator.png"));
+		b2.setBackground(Color.DARK_GRAY);
+		b2.setFont(f);
+		b2.setForeground(Color.BLACK);
+		b2.setFocusPainted(false);
+		b2.setOpaque(false);
+		pano.add(b2);
+		
+		b2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if(calc.getInt()>552500) {
+					result.setText(""+(calc.getInt()*0.025) + " DA");
+				}
+				
+			}
+		});
+		
+		
+		
+		pano.add(lab);
+		pano.setLayout(null);
+		c.validate();
+		pano.validate();
+		this.setVisible(true);
+		
+		
+	}
+	JButton b1 = new JButton("Back");
+	
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder; 
+
+public class GoldFrame extends JFrame {
+	
+	public GoldFrame() {
+		super("Gold & Silver");
+		this.setSize(1000,700);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		
+		Container c = this.getContentPane();
+		
+		JPanel pano = new JPanel();
+		c.add(pano);
+		
+		Font f = new Font("Arial",Font.BOLD	, 20);
+		
+		
+		JLabel lab = new JLabel();
+		ImageIcon i = new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/gld.jpg");
+		Image im = i.getImage();
+		Image imm = im.getScaledInstance(1000, 700, java.awt.Image.SCALE_SMOOTH);
+		ImageIcon ico = new ImageIcon(imm);
+		lab.setIcon(ico);
+		lab.setBounds(0, 0, 1200, 700);
+		
+		Text calc = new Text();
+		calc.setBounds(400, 70, 250, 30);
+		calc.setFont(f);
+		pano.add(calc);
+		
+		JLabel enter = new JLabel("Input :");
+		enter.setFont(f);
+		enter.setBounds(250, 70, 100, 30);
+		enter.setForeground(Color.WHITE);
+		pano.add(enter);
+		
+		Text result = new Text();
+		result.setText("0 g");
+		result.setEditable(false);
+		result.setBounds(400, 250, 250, 30);
+		result.setFont(f);
+		pano .add(result);
+		
+		
+		JLabel res = new JLabel("Result :");
+		res.setFont(f);
+		res.setBounds(250, 250, 100, 30);
+		res.setForeground(Color.WHITE);
+		pano.add(res);
+		
+		JLabel en = new JLabel(" g");
+		en.setFont(f);
+		en.setBounds(670, 70, 100, 30);
+		en.setForeground(Color.WHITE);
+		pano.add(en);
+		
+		b1.setBounds(300, 500, 170, 40);
+		b1.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/back.png"));
+		b1.setBackground(Color.DARK_GRAY);
+		b1.setFont(f);
+		b1.setForeground(Color.WHITE);
+		b1.setFocusPainted(false);
+		pano.add(b1);
+		
+		JButton b2 = new JButton("Calculate");
+		b2.setBounds(530, 500, 170, 40);
+		b2.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/calculator.png"));
+		b2.setBackground(Color.DARK_GRAY);
+		b2.setFont(f);
+		b2.setForeground(Color.WHITE);
+		b1.setFocusPainted(false);
+		pano.add(b2);
+		
+		JRadioButton g1 = new JRadioButton("24 carat");
+		JRadioButton g2 = new JRadioButton("21 carat");
+		JRadioButton g3 = new JRadioButton("18 carat");
+		g1.setBounds(250, 150, 100, 20);
+		g2.setBounds(360, 150, 100, 20);
+		g3.setBounds(470, 150, 100, 20);
+		
+		pano.add(g1);
+		pano.add(g2);
+		pano.add(g3);
+		
+		
+		ButtonGroup grpe = new ButtonGroup();
+		grpe.add(g1);
+		grpe.add(g2);
+		grpe.add(g3);
+		
+		
+		
+		JRadioButton r1 = new JRadioButton("Gold");
+		JRadioButton r2 = new JRadioButton("Silver");
+		r1.setBounds(300, 10, 100, 30);
+		r2.setBounds(500, 10, 100, 30);
+		r1.setFont(f);
+		r2.setFont(f);
+		r1.setBackground(Color.BLACK);
+		r2.setBackground(Color.BLACK);
+		r1.setForeground(Color.WHITE);
+		r2.setForeground(Color.WHITE);
+		
+		ButtonGroup grp = new ButtonGroup();
+		grp.add(r1);
+		grp.add(r2);
+		pano.add(r1);
+		pano.add(r2);
+		
+		b2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if(r1.isSelected()) {
+					if (g1.isSelected()) {
+						if(calc.getInt()>85) {
+							result.setText(""+(calc.getInt()*0.25)+" g");
+						}
+					}
+					if (g2.isSelected()) {
+						if(calc.getInt()>97) {
+							result.setText(""+(calc.getInt()*0.25)+" g");
+						}
+					}
+					if (g3.isSelected()) {
+						if(calc.getInt()>113) {
+							result.setText(""+(calc.getInt()*0.25)+" g");
+						}
+					}
+					
+				}
+				
+				if (r2.isSelected()) {
+					if(calc.getInt()>595) {
+						result.setText(""+(calc.getInt()*0.025) + " g");
+					}
+				}
+			}
+		});
+		
+		
+		
+		
+		pano.add(lab);
+		c.validate();
+		pano.validate();
+		pano.setLayout(null);
+		this.setVisible(true);
+	}
+	JButton b1 = new JButton("Back");
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+
+import com.sun.nio.file.SensitivityWatchEventModifier;
+
+public class LivestockFrame extends JFrame  {
+	
+	public LivestockFrame() {
+		super("livestock");
+		this.setSize(1200,700);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		
+		Container c = this.getContentPane();
+		
+		JPanel pano = new JPanel();
+		c.add(pano);
+		
+		Font f = new Font("Arial",Font.BOLD	, 20);
+		
+		JLabel lab = new JLabel(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/back.jpg"));
+		lab.setBounds(0, 0, 1200, 700);
+		
+		
+		Text calc = new Text();
+		calc.setBounds(600, 200, 200, 30);
+		calc.setFont(f);
+		
+		JLabel enter = new JLabel("Input :");
+		enter.setFont(f);
+		enter.setBounds(500, 200, 100, 30);
+		enter.setForeground(Color.WHITE);
+		pano.add(enter);
+		
+		Text result = new Text();
+		result.setText("");
+		result.setEditable(false);
+		result.setBounds(600, 400, 200, 30);
+		result.setFont(f);
+		
+		
+		JLabel res = new JLabel("the result is :");
+		res.setFont(f);
+		
+		res.setBounds(450, 400, 150, 30);
+		res.setForeground(Color.WHITE);
+		pano.add(res);
+		
+		
+		pano.add(result);
+		pano.add(calc);
+	
+		JLabel prin = new JLabel("Select the kind firstly");
+		prin.setBounds(440, 100, 350, 30);
+		prin.setFont(new Font("Arial", Font.BOLD, 30));
+		prin.setForeground(Color.red);
+		pano.add(prin);
+		
+		JRadioButton r1 = new JRadioButton("Cattle");
+		JRadioButton r3 = new JRadioButton("Camel");
+		JRadioButton r2 = new JRadioButton("Sheep");
+		
+		ButtonGroup grp = new ButtonGroup();
+		grp.add(r1);
+		grp.add(r2);
+		grp.add(r3);
+		//r1.setSelected(true);
+		
+		r1.setBounds(420, 170, 100, 20);
+		r2.setBounds(530, 170, 100, 20);
+		r3.setBounds(640, 170, 100, 20);
+		r1.setFont(f);
+		r1.setForeground(Color.WHITE);
+		r1.setBackground(Color.BLACK);
+		r1.setOpaque(false);
+		r1.setFocusPainted(false);
+		r2.setFont(f);
+		r2.setForeground(Color.WHITE);
+		r2.setBackground(Color.BLACK);
+		r2.setOpaque(false);
+		r2.setFocusPainted(false);
+		r3.setFont(f);
+		r3.setForeground(Color.WHITE);
+		r3.setBackground(Color.BLACK);
+		r3.setOpaque(false);
+		r3.setFocusPainted(false);
+		
+		r1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				prin.setForeground(Color.WHITE);
+				prin.setText("Cattle");
+				setTitle("Cattle");
+				
+			}
+		});
+		r2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				prin.setForeground(Color.WHITE);
+				prin.setText("Sheep");
+				setTitle("Sheep");
+				
+			}
+		});
+		r3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				prin.setForeground(Color.WHITE);
+				prin.setText("Camel");
+				setTitle("Camel");
+				
+			}
+		});
+		
+		pano.add(r1);
+		pano.add(r2);
+		pano.add(r3);
+		
+		
+		
+		b1.setBounds(420, 500, 170, 40);
+		b1.setFont(f);
+		b1.setForeground(Color.WHITE);
+		b1.setFocusPainted(false);
+		b1.setBackground(Color.black);
+		b1.setOpaque(false);
+		b1.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/back.png"));
+		
+		pano.add(b1);
+		
+		JButton b2 = new JButton("Calculate");
+		b2.setBounds(650, 500, 170, 40);
+		b2.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/calculator.png"));
+		b2.setFont(f);
+		b2.setForeground(Color.WHITE);
+		b2.setFocusPainted(false);
+		b2.setBackground(Color.black);
+		b2.setOpaque(false);
+	
+		
+		b2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if(r1.isSelected()) {
+					setTitle("Cattle");
+					result.setText(result.Calc_Bovins(calc.getInt()));
+				}
+				
+				if(r2.isSelected()) {
+					result.setText(result.Calc_Ovins(calc.getInt()));
+					
+					
+				}
+				
+				if(r3.isSelected()) {
+					result.setText(result.calc(calc.getInt()));
+					
+					
+				}
+				
+				
+			}
+		});
+		pano.add(b2);
+		
+		pano.add(lab);
+		pano.setLayout(null);
+		pano.validate();
+		c.validate();
+		
+		
+		
+		
+		
+	}
+	JButton b1 = new JButton("Back");
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Main_Frame extends JFrame /*implements ActionListener*/ {
+	public Main_Frame() {
+		super("Zakat Application");
+		this.setSize(1000,700);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		
+		Container c = this.getContentPane();
+		
+		JPanel pano = new JPanel();
+		c.add(pano);
+		pano.setBackground(Color.DARK_GRAY);
+		
+		JLabel back = new JLabel();
+		ImageIcon bac = new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/pexels-photo-813269.jpeg");
+		Image imb = bac.getImage();
+		Image ib = imb.getScaledInstance(1400, 800, java.awt.Image.SCALE_SMOOTH);
+		ImageIcon icb = new ImageIcon(ib);
+		back.setBounds(0, 0, 1400, 800);
+		back.setIcon(icb);
+		
+		
+		Font f1 = new Font("Garamond", Font.ITALIC,30);
+		Font f2 = new Font("Arial", Font.ITALIC,20);
+		
+		JLabel welcome = new JLabel("Welcome in our Application");
+		welcome.setFont(f1);
+		welcome.setForeground(Color.WHITE);
+		welcome.setBounds(30,50,550,30);
+		pano.add(welcome);
+		
+		
+		
+		JLabel choose = new JLabel("please choose the zakat kind");
+		choose.setFont(f2);
+		choose.setForeground(Color.WHITE);
+		choose.setBounds(350,180,600,100);
+		pano.add(choose);
+		
+		ImageIcon image = new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/index.jpeg");
+		Image im = image.getImage();
+		Image i = im.getScaledInstance(300, 150, java.awt.Image.SCALE_SMOOTH);
+		ImageIcon icon1 = new ImageIcon(i);
+		
+		JLabel l = new JLabel("hola");
+		l.setBounds(600,10,300,200);
+		l.setIcon(icon1);
+		pano.add(l);
+		
+		JLabel power = new JLabel("Powered By Anouar");
+		power.setFont(f2);
+		power.setBounds(740, 600, 500, 40);
+		power.setForeground(Color.WHITE);
+		pano.add(power);
+		
+		JButton b1 = new JButton("            Livestock");
+		b1.setBounds(250, 250, 500, 70);
+		b1.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/camel1.png"));
+		//b1.setBackground(Color.LIGHT_GRAY);
+		b1.setOpaque(false);
+		b1.setFocusPainted(false);
+		b1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				LivestockFrame f = new LivestockFrame();
+				setVisible(false);
+				f.setVisible(true);
+				f.b1.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						// TODO Auto-generated method stub
+						f.setVisible(false);
+						setVisible(true);
+						
+					}
+				});
+				
+				
+			}
+		});
+		//b1.setContentAreaFilled(false);
+		b1.setFont(f1);
+		b1.setBackground(Color.DARK_GRAY);
+		b1.setForeground(Color.WHITE);
+		b1.setFocusPainted(false);
+		pano.add(b1);
+		
+		JButton b2 = new JButton("Agricultural products");
+		b2.setBounds(250, 330, 500, 70);
+		b2.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/wheat.png"));
+		b2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				AgricFrame f = new AgricFrame();
+				setVisible(false);
+				f.setVisible(true);
+				f.b1.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						// TODO Auto-generated method stub
+						f.setVisible(false);
+						setVisible(true);
+						
+					}
+				});
+				
+				
+			}
+		});
+		//b2.setBackground(Color.ORANGE);
+		b2.setBackground(Color.DARK_GRAY);
+		b2.setFont(f1);
+		b2.setForeground(Color.WHITE);
+		b2.setFocusPainted(false);
+		b2.setOpaque(false);
+		pano.add(b2);
+		
+		JButton b3 = new JButton("        Gold & Silver");
+		b3.setBounds(250, 410, 500, 70);
+		b3.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/gold.png"));
+		//b3.setBackground(Color.ORANGE);
+		
+		b3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				GoldFrame f = new GoldFrame();
+				setVisible(false);
+				f.setVisible(true);
+				f.b1.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						// TODO Auto-generated method stub
+						f.setVisible(false);
+						setVisible(true);
+						
+					}
+				});
+				
+				
+			}
+		});
+		b3.setBackground(Color.DARK_GRAY);
+		b3.setFont(f1);
+		b3.setForeground(Color.WHITE);
+		b3.setOpaque(false);
+		b3.setFocusPainted(false);
+		pano.add(b3);
+		
+		JButton b4 = new JButton("         Cash        ");
+		b4.setBounds(250, 490, 500, 70);
+		b4.setIcon(new ImageIcon("/home/anouar/eclipse-workspace/Zakat/Pictures/money-bag.png"));
+		b4.setBackground(Color.DARK_GRAY);
+		b4.setFont(f1);
+		b4.setForeground(Color.WHITE);
+		b4.setOpaque(false);
+		b4.setFocusPainted(false);
+		
+		b4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				CashFrame f = new CashFrame();
+				setVisible(false);
+				f.setVisible(true);
+				f.b1.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						// TODO Auto-generated method stub
+						f.setVisible(false);
+						setVisible(true);
+						
+					}
+				});
+				
+				
+			}
+		});
+		
+		
+		pano.add(b4);
+		
+		
+		
+		
+		
+		pano.add(back);
+		pano.setLayout(null);
+		pano.validate();
+		
+		
+		
+		this.setVisible(true);
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.awt.Font;
+import java.awt.TextField;
+
+public class Text extends TextField {
+	
+	Font f = new Font("Garamond", Font.BOLD,30);
+	
+	public Text() {
+		this.setText("0");
+		this.setFont(f);
+		
+	}
+	int getInt() {
+		String d = this.getText();
+		int s = Integer.valueOf(d);
+		return s;
+	}
+	public String Calc_Bovins(int v)
+    {
+        String msg=null;
+        int x=v;
+        int x40,x30;
+        x40=0;x30=0;
+        if(v>=120)
+        {
+            
+        
+        if(v%40 ==0 ||v% 30==0||v % 40<10||v % 30<10)
+        {
+            if(v%40==0 ||v%40<10)
+            {msg=(v/40+"MO");
+                
+            }
+           
+            else 
+            {
+              msg=(v/30+"T");   
+            }
+               
+        }
+           
+        else 
+        {
+        	do
+            {
+                if(x!=40 )
+                {
+                    x=x-30;
+                    x30=x30+1;
+                }
+                 if((x!=30) && (x>=40 ))
+                {
+                    x=x-40;
+                    x40=x40+1;
+                }
+                
+                
+                
+            }while(x>=30);
+            
+            
+            msg=(x30+"T + "+x40+"MO");
+        }
+            
+        
+        
+        }
+        else
+        {
+            
+                
+               if(v<30)
+               {
+                   msg=("No Zakat");
+               }
+                    if(v>=30&&v<=39)
+                    {
+                        msg=("1T");
+                    }
+                 
+                    if(x>=40&&x<=59)
+                    {
+                        msg=("MO");
+                    }
+                   
+                    if(x>=60&&x<=69)
+                    {
+                        msg=("2T" );
+                    }
+                    
+                    if(x>=70&&x<=79)
+                    {
+                        msg=(" MO+T");
+                    }
+                    
+                    if(x>=80&&x<=89)
+                    {
+                        msg=("2MO");
+                    }
+                    if(x>=90&&x<=99)
+                    {
+                        msg=("3T");
+                    }
+                    if(x>=100&&x<=119)
+                    {
+                        msg=("MO+2T");
+                    }
+                    
+                   
+                    
+                    
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        return msg;
+    }
+	
+	public String calc(int v)
+    {
+        String msg = null;
+        
+        int x=v;
+        int x40,x50;
+        
+        
+        
+        x40=0;x50=0;
+        if(v>120)
+        {
+            
+        
+        if(v%50==0 ||v%40==0 || v%40<10 ||v%50<10)
+        {
+            if(v%50==0||v%50<10)
+            {msg=(v/50+"H"); 
+                
+            }
+           
+            else
+            {
+              msg=(v/40+"H");   
+            }
+               
+        }
+           
+        else 
+        {
+            do
+            {
+                if((x!=50) )
+                {
+                    x=x-40;
+                    x40=x40+1;
+                }
+                 if((x!=40)  && (x>=50) )
+                {
+                    x=x-50;
+                    x50=x50+1;
+                }
+                
+                
+                
+            }while(x>=40);
+            
+            
+            msg=(x40+"L ET "+x50+"H");
+        }
+            
+        
+        
+        }
+        else
+        {
+            
+                
+               if(v<5)
+               {
+                   msg=("Vous N'avez aucun Zakat");
+               }
+                    if(v>=5&&v<=24)
+                    {
+                        msg=(x/5+"Chaite");
+                    }
+                 
+                    if(x>=25&&x<=35)
+                    {
+                        msg=(" M");
+                    }
+                   
+                    if(x>=36&&x<=45)
+                    {
+                        msg=("L" );
+                    }
+                    
+                    if(x>=46&&x<=60)
+                    {
+                        msg=(" H");
+                    }
+                    
+                    if(x>=61&&x<=75)
+                    {
+                        msg=("J");
+                    }
+                   
+                    if(x>=76&&x<=90)
+                    {
+                        msg=(" 2L");
+                    }
+                   
+                    if(x>=91&&x<=120)
+                    {
+                        msg=(" 2H");
+                    }
+                   
+                    
+                    
+            
+        }
+        return msg;
+        
+    }
+	
+	public float calcNum(int v)
+    {
+    	float x;
+    	
+    	if(v<450500)
+    	{
+    		x=0;
+    	}
+    	else
+    	{
+    		x=(float) ((v*2.5)/100);
+    	}
+    	
+    	return x;
+    	
+    }
+
+    public String Calc_Ovins(int v)
+    {
+    	 String msg=null;
+	        int x=v;
+	        int x40,x30;
+	        x40=0;x30=0;
+	        if(v>=400)
+	        {
+	            
+	        msg=(v/100+"C");
+	        }
+	        else
+	        {
+	            
+	                
+	               if(v<40)
+	               {
+	                   msg=("No Zakat");
+	               }
+	                    if(v>=40&&v<=120)
+	                    {
+	                        msg=("1C");
+	                    }
+	                 
+	                    if(x>=121&&x<=200)
+	                    {
+	                        msg=("2C");
+	                    }
+	                   
+	                    if(x>=201&&x<=399)
+	                    {
+	                        msg=("3C" );
+	                    }
+	                    
+	                    
+	                    
+	                   
+	                    
+	                    
+	            
+	        }
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        return msg;
+    }
+    public float calc_agrA(int v)
+    {
+    	float x=0;
+    	if(v<675)
+    	{
+    		x=0;
+    	}
+    	else{
+    		x=(v*5)/100;
+    		
+    	}
+    	return x;
+    }
+    public float calc_agrs(int v)
+    {
+    	float x=0;
+    	if(v<675)
+    	{
+    		x=0;
+    	}
+    	else{
+    		x=(v*10)/100;
+    		
+    	}
+    	return x;
+    }
+    
+    
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Zakat_App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Main_Frame f = new Main_Frame();
+		
+		//LivestockFrame f = new LivestockFrame();
+		
+		//AgricFrame f = new AgricFrame();
+		//GoldFrame f = new GoldFrame();
+		//CashFrame f = new CashFrame();
+		
+		//f.setVisible(true);
+	}
+
+}
